@@ -1,6 +1,4 @@
 How many users do we have?
-select count(distinct user_guid)
-from stg_postgres__users;
 130
 
 On average, how many orders do we receive per hour?
