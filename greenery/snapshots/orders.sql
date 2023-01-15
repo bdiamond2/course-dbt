@@ -1,4 +1,5 @@
 {% snapshot orders_snapshot %}
+
 {{
   config(
     target_database = target.database,
@@ -9,6 +10,6 @@
    )
 }}
 
-select * from source('postgres', 'orders')
+select * from {{ source('postgres', 'orders') }}
 
 {% endsnapshot %}
