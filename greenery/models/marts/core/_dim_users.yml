@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: Dimension table containing information about users on the greenery site

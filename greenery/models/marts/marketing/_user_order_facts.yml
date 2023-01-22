@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: user_order_facts
+    description: Information about users with respect to their order activity

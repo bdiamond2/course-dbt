@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: fact_orders
+    description: Fact table containing information about orders, including event and item numbers

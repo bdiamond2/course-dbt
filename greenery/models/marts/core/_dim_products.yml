@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Dimension table containing information about products sold by greenery

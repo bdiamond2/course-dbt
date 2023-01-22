@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: fact_product_activity
+    description: Fact table containing product-level information about customer engagement (page views, orders, etc.)
