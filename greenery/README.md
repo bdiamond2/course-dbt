@@ -1,3 +1,42 @@
+# WEEK 2
+*What is our user repeat rate?*
+```
+select
+    div0(
+        sum(case when
+            has_ordered_mult=1
+            then 1 else 0 end)
+        , sum(case when
+            has_ordered=1
+            then 1 else 0 end)
+            ) as repeat_rate
+from user_order_facts
+```
+- 0.798387
+
+*What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
+NOTE: This is a hypothetical question vs. something we can analyze in our Greenery data set. Think about what exploratory analysis you would do to approach this question.*
+We'd want to look at a combination of attributes from dim_users as well as any patterns that may exist in their order history. Things like city/state/country could be telling, as well as other demographic info we don't currently have access to in this dataset. In terms of purchase behavior, we could look at a number of things like the timing of their activity and orders, quantity purchased, or the specific products they tend to buy.
+
+*Explain the marts models you added. Why did you organize the models in the way you did?*
+I didn't identify any opportunities for intermediate models myself, but I'll take a look at some examples later.
+
+Core:
+- dim_products: Basic product fields, nothing added.
+- dim_users: Basic user info plus joined address fields so analysts don't have to merge on address_guid.
+- fact_orders: Basic order info plus the number of items in each order and the number of events associated with it. Item number is likely the more helpful addition, so you can check things like average items per order.
+
+Marketing:
+- user_order_facts: Number of orders they had, if they were repeat users, datetime of first and last orders, avg and totals for the costs of their orders, average shipping time, and the number of different shipping services used for them. This would allow us to identify who the biggest buyers are and look for patterns (e.g. does shipping cost or time correlate with order volume?).
+
+Product:
+- fact_product_engagement: Because what we're really looking for is more than just page views, I opted to call it "product engagement" to be more general. Here I look at product-level info for page views, add-to-cart actions, number of orders included in, and total number sold. The obvious application is finding out what the most popular products are, but also something like seeing what gets viewed/added but not purchased as much.
+
+
+*Use the dbt docs to visualize your model DAGs to ensure the model layers make sense*
+See '2023.01.23 dbt-dag.png' in this dbt directory.
+
+# WEEK 1
 How many users do we have?
 ```
 select count(distinct user_guid)

@@ -3,3 +3,8 @@ version: 2
 models:
   - name: dim_users
     description: Dimension table containing information about users on the greenery site
+    columns:
+      - name: user_guid
+        tests:
+          - unique
+          - not_null
