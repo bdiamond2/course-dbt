@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: fact_session_product_stats
+    description: Provides session information about products

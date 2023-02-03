@@ -1,0 +1,6 @@
+
+version: 2
+
+models:
+  - name: fact_session_stats
+    description: Shows certain numerical statistics at the session level
