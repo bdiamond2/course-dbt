@@ -1,5 +1,5 @@
 version: 2
 
 models:
-  - name: fact_session_product_stats
+  - name: fact_session_product_purchase
     description: Provides session information about products
