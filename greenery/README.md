@@ -1,3 +1,27 @@
+# WEEK 3
+*What is our overall conversion rate?*
+```
+select
+    div0(
+        sum(case when checkout_count > 0 then 1 else 0 end)
+        , count(*)
+    )
+from fact_session_stats;
+```
+0.624567
+
+*What is our conversion rate by product?*
+```
+select
+    product
+    , count(*) as sessions
+    , sum(case when has_purchase = 1 then 1 else 0 end) as sessions_w_purchase
+    , sessions_w_purchase / sessions as conversion_rate
+from fact_session_product_purchase
+group by 1
+```
+e.g. fb0e8be7-5ac4-4a76-a1fa-2cc4bf0b2d80 had **60.9%**
+
 # WEEK 2
 *What is our user repeat rate?*
 ```
